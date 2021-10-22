@@ -35,6 +35,8 @@ $routes->get('/welcome', 'Home::index');
 
 $routes->get('/', 'Contrato::index');
 $routes->match(['get', 'post'], '/create', 'Contrato::create');
+$routes->match(['get', 'post'], '/edit/(:num)', 'Contrato::edit/$1');
+$routes->delete('/delete/(:num)', 'Contrato::edit/$1');
 
 /*
  * --------------------------------------------------------------------

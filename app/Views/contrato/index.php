@@ -15,15 +15,15 @@
     </tr>
   </thead>
   <tbody>
-    <?php foreach ($empresas as $empresa) : ?>
+    <?php foreach ($contratos as $contrato) : ?>
       <tr>
-        <td><?= $empresa['id'] ?></td>
-        <td><?= $empresa['empresa'] ?></td>
-        <td><?= $empresa['cnpj'] ?></td>
-        <td><?= $empresa['dataInicio'] ?></td>
-        <td><?= $empresa['dataFim'] ?></td>
-        <td><?= $empresa['descricao'] ?></td>
-        <td><?= $empresa['id'] ?> | <?= $empresa['id'] ?></td>
+        <td><?= $contrato['id'] ?></td>
+        <td><?= $contrato['empresa'] ?></td>
+        <td><?= $contrato['cnpj'] ?></td>
+        <td><?= date('d-m-Y', strtotime($contrato['dataInicio']))  ?></td>
+        <td><?= date('d-m-Y', strtotime($contrato['dataFim'])) ?></td>
+        <td><?= $contrato['descricao'] ?></td>
+        <td><a href="<?= base_url('/contrato/edit/' . $contrato['id']); ?>">Edit</a> | <a href="<?= base_url('/contrato/delete/' . $contrato['id']) ?>" onclick="return confirm('Are you sure?')">Delete</a></td>
       </tr>
     <?php endforeach ?>
   </tbody>
